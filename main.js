@@ -12,7 +12,7 @@ async function callService(data) {
         body: JSON.stringify(data)
     }); 
 
-    return await response.json();
+    return response.json();
 }
 
 document.querySelector('button').addEventListener('click', function () {
