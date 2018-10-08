@@ -15,7 +15,7 @@ async function callService(data) {
     return response.json();
 }
 
-document.querySelector('button').addEventListener('click', function () {
+document.querySelector('button').addEventListener('click', async function () {
     var fileInput = document.querySelector("#fileElement");
-    readFile(fileInput).then(callService).then(data => console.log(data) );
+    console.log(await readFile(fileInput).then(callService))
 })
