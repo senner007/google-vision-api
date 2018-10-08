@@ -1,15 +1,18 @@
 import readFile from './camera';
 import {url} from './url'
+import 'babel-polyfill';
 
-function callService(data) {
+async function callService(data) {
 
-    return fetch(url, {
+    const response = await fetch(url, {
         method: "POST", 
         headers: {
             "Content-Type": "application/json;"
         },
         body: JSON.stringify(data)
-    }).then(response => response.json()); 
+    }); 
+
+    return await response.json();
 }
 
 document.querySelector('button').addEventListener('click', function () {
